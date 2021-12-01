@@ -7,11 +7,23 @@ using namespace std;
 
 vector<int> RAM;
 void llenarRAM(vector<int>, int);
+int leer(int);
+void escribir(int,int); 
+
 
 
 int main(int argc, char** argv) {
-	llenarRAM(RAM,100);
-	cout<<"RAM LLenada"<<endl;
+	int n = 4096; // n puede variar
+	llenarRAM(RAM,n);
+	for (int i=0;i<=n-2;i++)
+        for (int j=i+1;j<=n-1;j++)
+           if (leer(i)>leer(j)){
+              int temp=leer(i);
+              escribir(i, leer(j));
+              escribir(j,temp);
+			  }
+
+
 	return 0;
 }
 
@@ -26,12 +38,30 @@ void llenarRAM(vector<int> R, int size){
             R.push_back(numero);
         }
     }
-	cout<<R.size()<<"este es el size"<<endl;
-	for(int i = 0 ; i < size; i++){
-		cout<<R[i]<<endl;
-	}
-	cout<<endl;	
+    
+//	for(int i = 0 ; i < size; i++){
+//		cout<<R[i]<<endl;
+//	}
+//	cout<<endl;	
+	cout<<"RAM LLenada"<<endl;
 }
+
+int leer (int posicion){
+	return posicion;
+}
+
+void escribir(int posicion, int valor){
+	
+}
+
+//	for (int i=0;i<=n-2;i++) el burbuja que nos da el Ing
+//        for (int j=i+1;j<=n-1;j++)
+//           if (leer(i)>leer(j)){
+//              temp=leer(i);
+//              escribir(i, leer(j));
+//              escribir(j,temp);
+//			  }
+
 
 
 
